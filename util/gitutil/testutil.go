@@ -2,6 +2,7 @@ package gitutil
 
 import (
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -38,15 +39,25 @@ func GitCheckoutBranch(c *Git, tb testing.TB, name string) {
 	require.Empty(tb, out)
 }
 
-func GitAdd(c *Git, tb testing.TB, file string) {
+func GitAdd(c *Git, tb testing.TB, files ...string) {
 	tb.Helper()
-	_, err := fakeGit(c, "add", file)
+	args := append([]string{"add"}, files...)
+	_, err := fakeGit(c, args...)
 	require.NoError(tb, err)
 }
 
 func GitSetRemote(c *Git, tb testing.TB, name string, url string) {
 	tb.Helper()
 	_, err := fakeGit(c, "remote", "add", name, url)
+	require.NoError(tb, err)
+}
+
+func GitSetMainUpstream(c *Git, tb testing.TB, remote, target string) {
+	tb.Helper()
+	_, err := fakeGit(c, "fetch", "--depth", "1", remote, target)
+	require.NoError(tb, err)
+
+	_, err = fakeGit(c, "branch", "--set-upstream-to", remote+"/"+target, "main")
 	require.NoError(tb, err)
 }
 
@@ -72,4 +83,12 @@ func fakeGit(c *Git, args ...string) (string, error) {
 	}
 	allArgs = append(allArgs, args...)
 	return c.clean(c.run(allArgs...))
+}
+
+func IsAmbiguousArgument(err error) bool {
+	if err == nil {
+		return false
+	}
+	errMsg := strings.ToLower(err.Error())
+	return strings.Contains(errMsg, "use '--' to separate paths from revisions")
 }
