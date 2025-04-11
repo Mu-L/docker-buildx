@@ -6,7 +6,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.2.1
 	github.com/Microsoft/go-winio v0.6.2
 	github.com/aws/aws-sdk-go-v2/config v1.27.27
-	github.com/compose-spec/compose-go/v2 v2.4.9
+	github.com/compose-spec/compose-go/v2 v2.6.0
 	github.com/containerd/console v1.0.4
 	github.com/containerd/containerd/v2 v2.0.4
 	github.com/containerd/continuity v0.4.5
@@ -30,6 +30,8 @@ require (
 	github.com/in-toto/in-toto-golang v0.5.0
 	github.com/mitchellh/hashstructure/v2 v2.0.2
 	github.com/moby/buildkit v0.21.0-rc1
+	github.com/moby/go-archive v0.0.0-20250404171912-21f3f3385ab7
+	github.com/moby/sys/atomicwriter v0.1.0
 	github.com/moby/sys/mountinfo v0.7.2
 	github.com/moby/sys/signal v0.7.1
 	github.com/morikuni/aec v1.0.0
@@ -168,7 +170,6 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.31.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	golang.org/x/crypto v0.37.0 // indirect
-	golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0 // indirect
 	golang.org/x/net v0.39.0 // indirect
 	golang.org/x/oauth2 v0.23.0 // indirect
 	golang.org/x/time v0.11.0 // indirect

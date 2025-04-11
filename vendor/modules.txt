@@ -128,7 +128,7 @@ github.com/cenkalti/backoff/v4
 # github.com/cespare/xxhash/v2 v2.3.0
 ## explicit; go 1.11
 github.com/cespare/xxhash/v2
-# github.com/compose-spec/compose-go/v2 v2.4.9
+# github.com/compose-spec/compose-go/v2 v2.6.0
 ## explicit; go 1.23
 github.com/compose-spec/compose-go/v2/cli
 github.com/compose-spec/compose-go/v2/consts
@@ -298,10 +298,8 @@ github.com/docker/docker/client
 github.com/docker/docker/errdefs
 github.com/docker/docker/internal/lazyregexp
 github.com/docker/docker/internal/multierror
-github.com/docker/docker/pkg/archive
 github.com/docker/docker/pkg/atomicwriter
 github.com/docker/docker/pkg/homedir
-github.com/docker/docker/pkg/idtools
 github.com/docker/docker/pkg/jsonmessage
 github.com/docker/docker/pkg/namesgenerator
 github.com/docker/docker/pkg/stdcopy
@@ -568,6 +566,9 @@ github.com/moby/buildkit/version
 # github.com/moby/docker-image-spec v1.3.1
 ## explicit; go 1.18
 github.com/moby/docker-image-spec/specs-go/v1
+# github.com/moby/go-archive v0.0.0-20250404171912-21f3f3385ab7
+## explicit; go 1.23.0
+github.com/moby/go-archive
 # github.com/moby/locker v1.0.1
 ## explicit; go 1.13
 github.com/moby/locker
@@ -579,6 +580,9 @@ github.com/moby/patternmatcher/ignorefile
 ## explicit; go 1.13
 github.com/moby/spdystream
 github.com/moby/spdystream/spdy
+# github.com/moby/sys/atomicwriter v0.1.0
+## explicit; go 1.18
+github.com/moby/sys/atomicwriter
 # github.com/moby/sys/mountinfo v0.7.2
 ## explicit; go 1.17
 github.com/moby/sys/mountinfo
@@ -858,11 +862,6 @@ golang.org/x/crypto/nacl/sign
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/agent
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0
-## explicit; go 1.23.0
-golang.org/x/exp/constraints
-golang.org/x/exp/maps
-golang.org/x/exp/slices
 # golang.org/x/mod v0.24.0
 ## explicit; go 1.23.0
 golang.org/x/mod/internal/lazyregexp

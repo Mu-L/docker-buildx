@@ -42,7 +42,6 @@ import (
 	"github.com/docker/cli/cli/command"
 	dockeropts "github.com/docker/cli/opts"
 	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/pkg/atomicwriter"
 	"github.com/moby/buildkit/client"
 	"github.com/moby/buildkit/exporter/containerimage/exptypes"
 	"github.com/moby/buildkit/frontend/subrequests"
@@ -53,6 +52,7 @@ import (
 	solverpb "github.com/moby/buildkit/solver/pb"
 	"github.com/moby/buildkit/util/grpcerrors"
 	"github.com/moby/buildkit/util/progress/progressui"
+	"github.com/moby/sys/atomicwriter"
 	"github.com/morikuni/aec"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -403,6 +403,10 @@ func runBuild(ctx context.Context, dockerCli command.Cli, options buildOptions) 
 		} else if exitcode != 0 {
 			os.Exit(exitcode)
 		}
+	}
+	if v, ok := resp.ExporterResponse["frontend.result.inlinemessage"]; ok {
+		fmt.Fprintf(dockerCli.Out(), "\n%s\n", v)
+		return nil
 	}
 	return nil
 }
